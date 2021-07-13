@@ -12,11 +12,12 @@
         <div class="center">
             <h1 id="shoutouttohisfamily"></h1>
             <button class="cool-button" id="skududknap">Nyt skud ud</button>
-
+            
+            <br/><br/><br/>
             <div>
-                <div>Like</div>
-                <div>12</div>
-                <div>Dislike</div>
+                <p id="liker" style='border:2px solid black;display: inline-block;border-radius: 5px;padding: 5px;'>Like</p>
+                <p id="scorer" style='border:2px solid black;display: inline-block;border-radius: 5px;padding: 5px;'>12</p>
+                <p id="disliker" style='border:2px solid black;display: inline-block;border-radius: 5px;padding: 5px;'>Dislike</p>
             </div>
 
             <script>
@@ -28,6 +29,22 @@
                         updateSkudUd();
                     })
 
+                    let likedPressed = false;
+                    let dislikedPressed = false;
+                    document.getElementById("liker").addEventListener("click", function() {
+                        document.getElementById("liker").style.backgroundColor = likedPressed ? "" : "#1bd15b";
+                        document.getElementById("disliker").style.backgroundColor = "";
+                        likedPressed = !likedPressed;
+                        dislikedPressed = false;
+                    });
+
+                    document.getElementById("disliker").addEventListener("click", function() {
+                        document.getElementById("disliker").style.backgroundColor = dislikedPressed ? "" : "#ff3b54";
+                        document.getElementById("liker").style.backgroundColor = "";
+                        dislikedPressed = !dislikedPressed;
+                        likedPressed = false;
+                    });
+
                     function updateSkudUd() {
                         let wordIndex = Math.round(Math.random() * dictionary.length);
                         let word = dictionary[wordIndex];
@@ -37,11 +54,16 @@
 
                     updateSkudUd();
 
-
+                    setScore(Math.round( Math.random() * getAllThings().length) );
+                    function setScore(score) {
+                        document.getElementById("scorer").innerText = score;
+                    }
                     function getAllThings() {
                         return [
                             "krog",
                             "skud",
+                            "at være uduelig",
+                            "at være duelig",
                             "bruger",
                             "vådrum",
                             "layout",

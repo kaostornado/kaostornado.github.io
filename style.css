@@ -19,3 +19,13 @@
 .container-fluid {
     padding-top: 3em;
 }
+
+#liker:hover {
+    background-color: #73ffa2;
+    cursor: pointer;
+}
+
+#disliker:hover {
+    background-color: #ff7385;
+    cursor: pointer;
+}
