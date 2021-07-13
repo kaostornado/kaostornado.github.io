@@ -15,9 +15,6 @@
 <script>
     // self executing function here
     (function() {
-        var msg = new SpeechSynthesisUtterance();
-        msg.lang = "da";
-
         let dictionary = getAllThings();
 
         document.getElementById("skududknap").addEventListener("click", function() {
@@ -29,17 +26,14 @@
             let word = dictionary[wordIndex];
             dictionary.splice(wordIndex, 1);
             document.getElementById("shoutouttohisfamily").innerText = "skud ud til " + word;
-
-            
-            //msg.text = "skud ud til " + word;
-            //window.speechSynthesis.speak(msg);
         }
 
         updateSkudUd();
         
 
         function getAllThings() {
-            return [
+            return [ 
+            "krog",
             "bruger",
             "vådrum",
             "layout",
@@ -643,7 +637,6 @@
             "afkom",
             "afkriminalisering",
             "afkrog",
-            "krog",
             "afkræftelse",
             "afkøling",
             "afkørsel",
