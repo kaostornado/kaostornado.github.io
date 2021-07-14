@@ -12,12 +12,15 @@
         <div class="center">
             <h1 id="shoutouttohisfamily"></h1>
             <button class="cool-button" id="skududknap">Nyt skud ud</button>
-            
-            <br/><br/><br/>
+
+            <br /><br /><br />
             <div>
-                <p id="liker" style='border:2px solid black;display: inline-block;border-radius: 5px;padding: 5px;'>Like</p>
-                <p id="scorer" style='border:2px solid black;display: inline-block;border-radius: 5px;padding: 5px;'>12</p>
-                <p id="disliker" style='border:2px solid black;display: inline-block;border-radius: 5px;padding: 5px;'>Dislike</p>
+                <p id="liker" style='border:2px solid black;display: inline-block;border-radius: 5px;padding: 5px;'>Like
+                </p>
+                <p id="scorer" style='border:2px solid black;display: inline-block;border-radius: 5px;padding: 5px;'>12
+                </p>
+                <p id="disliker" style='border:2px solid black;display: inline-block;border-radius: 5px;padding: 5px;'>
+                    Dislike</p>
             </div>
 
             <script>
@@ -31,14 +34,14 @@
 
                     let likedPressed = false;
                     let dislikedPressed = false;
-                    document.getElementById("liker").addEventListener("click", function() {
+                    document.getElementById("liker").addEventListener("click", function () {
                         document.getElementById("liker").style.backgroundColor = likedPressed ? "" : "#1bd15b";
                         document.getElementById("disliker").style.backgroundColor = "";
                         likedPressed = !likedPressed;
                         dislikedPressed = false;
                     });
 
-                    document.getElementById("disliker").addEventListener("click", function() {
+                    document.getElementById("disliker").addEventListener("click", function () {
                         document.getElementById("disliker").style.backgroundColor = dislikedPressed ? "" : "#ff3b54";
                         document.getElementById("liker").style.backgroundColor = "";
                         dislikedPressed = !dislikedPressed;
@@ -54,7 +57,7 @@
 
                     updateSkudUd();
 
-                    setScore(Math.round( Math.random() * getAllThings().length) );
+                    setScore(Math.round(Math.random() * getAllThings().length));
                     function setScore(score) {
                         document.getElementById("scorer").innerText = score;
                     }
@@ -32034,5 +32037,30 @@
         </div>
     </div>
 </body>
+
+<!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#available-libraries -->
+<script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-analytics.js"></script>
+
+<script>
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    var firebaseConfig = {
+        apiKey: "AIzaSyCMJCmR1rSpE80yAFa78oV-YgMdug8glSI",
+        authDomain: "skudud-f017d.firebaseapp.com",
+        databaseURL: "https://skudud-f017d-default-rtdb.europe-west1.firebasedatabase.app",
+        projectId: "skudud-f017d",
+        storageBucket: "skudud-f017d.appspot.com",
+        messagingSenderId: "513202466885",
+        appId: "1:513202466885:web:6ec516cffeb1f726b1732c",
+        measurementId: "G-JTGEGQW7ZB"
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    firebase.analytics();
+</script>
 
 </html>
